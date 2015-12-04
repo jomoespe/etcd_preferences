@@ -1,9 +1,12 @@
 package com.josemorenoesteban.etcd;
 
+import com.josemorenoesteban.etcd.client.EtcdClient;
 import java.util.prefs.AbstractPreferences;
 import java.util.prefs.BackingStoreException;
 
 public class EtdcPreferences extends AbstractPreferences {
+    private static EtcdClient etcdClient;
+    
     
     public EtdcPreferences(AbstractPreferences parent, String name) {
         super(parent, name);

@@ -1,4 +1,4 @@
-package com.josemorenoesteban.etcd;
+ package com.josemorenoesteban.etcd;
 
 import java.util.prefs.Preferences;
 import java.util.prefs.PreferencesFactory;
