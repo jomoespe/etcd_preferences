@@ -10,7 +10,8 @@ public class EtcdPreferencesTest {
     
     @BeforeClass
     public static void setPreferencesFactory() {
-        System.setProperty("java.util.prefs.PreferencesFactory", "com.josemorenoesteban.etcd.EtcdPreferencesFactory");
+        System.setProperty("java.util.prefs.PreferencesFactory",        "com.josemorenoesteban.etcd.EtcdPreferencesFactory");
+        System.setProperty("com.josemorenoesteban.etcd.client.factory", "com.josemorenoesteban.etcd.client.MockEtcdClientFactory");
     }
 
     @Test public void getSystemPrefsRoot(){
@@ -26,12 +27,6 @@ public class EtcdPreferencesTest {
     @Test public void getUserPreference(){
         Preferences userPrefs = Preferences.userRoot();
         String keyValue = userPrefs.get("key", "default");
-        assertEquals("default", keyValue);  // TODO fix this test. Now get the default, because is getSpi is not implemented :$
-    }
-
-    @Test public void getInexistentUserPreference(){
-        Preferences userPrefs = Preferences.userRoot();
-        String keyValue = userPrefs.get("xxxx", "default");
-        assertEquals("default", keyValue);
+        assertEquals("key", keyValue);  // TODO fix this test. Now get the default, because is getSpi is not implemented :$
     }
 }
