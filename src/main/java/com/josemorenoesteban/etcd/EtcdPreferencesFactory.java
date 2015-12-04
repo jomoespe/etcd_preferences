@@ -5,14 +5,21 @@ import java.util.prefs.PreferencesFactory;
 
 public class EtcdPreferencesFactory implements PreferencesFactory {
 
+    private final Preferences systemRoot, userRoot;
+    
+    public EtcdPreferencesFactory() {
+        this.systemRoot = new EtdcPreferences(null, "");
+        this.userRoot   = new EtdcPreferences(null, "");
+    }
+    
     @Override
     public Preferences systemRoot() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return systemRoot;
     }
 
     @Override
     public Preferences userRoot() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return userRoot;
     }
     
 }
